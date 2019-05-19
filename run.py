@@ -49,6 +49,11 @@ def create():
     """ 新規作成画面 """
     return render_template('edit.html')
 
+@app.route('/generate')
+def generate():
+    """ 新規生成画面 """
+    return render_template('generate.html')
+
 
 @app.route('/analysis', methods=['POST'])
 def analysis():
@@ -63,6 +68,13 @@ def analysis():
     pk = models.insert(con, title, data, img)
     return redirect(url_for('view', pk=pk))
 
+@app.route('/generateimg', methods=['POST'])
+def generateimg():
+    """ 画像生成実行処理 """
+ 
+    imgurl = models.gan()
+    result = {"imgurl":imgurl}
+    return render_template('viewimg.html', result=result)
 
 @app.route('/delete/<pk>', methods=['POST'])
 def delete(pk):

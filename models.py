@@ -6,6 +6,7 @@ from pandas.plotting import scatter_matrix
 import pandas as pd
 import time
 import io
+from ganmodels.generate_art_only_gen import gan_module
  
  
 def create_scatter(data):
@@ -29,6 +30,20 @@ def create_scatter(data):
  
     # pltをclose
     plt.close()
+ 
+    return url
+
+def gan():
+    img_name = gan_module()
+
+    # ファイル名
+    filename = img_name
+ 
+    # 保存先のパス
+    save_path = "./static/result/" + filename
+ 
+    # 表示用URL
+    url = "result/" + filename
  
     return url
 

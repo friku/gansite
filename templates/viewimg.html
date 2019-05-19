@@ -2,10 +2,8 @@
 {% block body %}
 <h1>結果参照</h1>
  
-<h3>{{ result.id }}:{{ result.title|safe}}</h3>
-<p>{{ result.created }}</p>
 <div class="row">
-    <img src="{{ url_for('static', filename=result.img) }}">
+    <img src="{{ url_for('static', filename=result.imgurl) }}">
 </div>
  
 <div class="row">
